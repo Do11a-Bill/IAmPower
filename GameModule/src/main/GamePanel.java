@@ -1,17 +1,46 @@
 package main;
 
+import inputs.KeyBoardInputs;
+import inputs.MouseInputs;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel {
 
+    private MouseInputs mouseInputs;
+
+    private int xDelta = 100, yDelta = 100;
+
     public GamePanel() {
 
+        mouseInputs = new MouseInputs(this);
+
+        addKeyListener(new KeyBoardInputs(this));
+        addMouseListener(mouseInputs);
+        addMouseMotionListener(mouseInputs);
+
+    }
+
+    public void changeXDelta(int xDelta) {
+        this.xDelta += xDelta;
+        repaint();
+    }
+
+    public void changeYDelta(int yDelta) {
+        this.yDelta += yDelta;
+        repaint();
+    }
+
+    public void setRecPos(int x, int y) {
+        this.xDelta = x;
+        this.yDelta = y;
+        repaint();
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.fillRect(100, 100, 200, 50);
+        g.fillRect(xDelta, yDelta, 200, 50);
     }
 }
