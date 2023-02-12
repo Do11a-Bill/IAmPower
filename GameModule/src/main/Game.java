@@ -16,6 +16,7 @@ public class Game implements Runnable{
 
     private void startGameLoop() {
         myGameThread = new Thread(this);
+        myGameThread.start();
     }
     @Override
     public void run() {

@@ -5,6 +5,8 @@ import inputs.MouseInputs;
 
 import javax.swing.*;
 import java.awt.*;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Random;
 
 public class GamePanel extends JPanel {
@@ -17,6 +19,9 @@ public class GamePanel extends JPanel {
     private long myLastCheck = 0;
     private Color myColor = new Color(150, 20, 90);
     private Random myRandom;
+
+    //Temporary, just for effect
+    private ArrayList<MyRect> myRects = new ArrayList<>();
 
     public GamePanel() {
         myRandom = new Random();
@@ -41,8 +46,17 @@ public class GamePanel extends JPanel {
         this.myYDelta = y;
     }
 
+    public void spawnRect(int x, int y) {
+        myRects.add(new MyRect(x, y));
+    }
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
+
+        // Temp Rects
+        for (MyRect rect : myRects) {
+            rect.updateRect();
+            rect.draw(g);
+        }
 
         updateRectangle();
         g.setColor(myColor);     // maybe we can change the color
@@ -77,5 +91,44 @@ public class GamePanel extends JPanel {
         int b = myRandom.nextInt(255);
 
         return new Color(r,g,b);
+    }
+
+    public class MyRect {
+        int x, y, w, h;
+        int xDir = 1, yDir = 1;
+        Color color;
+
+        public MyRect(int x, int y) {
+            this.x = x;
+            this.y = y;
+            w = myRandom.nextInt(50);
+            h = w;
+            color = newColor();
+        }
+
+        private void updateRect() {
+            this.x += xDir;
+            this.y += xDir;
+
+            if ((x + w) > 400 || x < 0) {
+                xDir += -1;
+                color = newColor();
+            }
+
+            if ((y + h) > 400 || y < 0) {
+                yDir += -1;
+                color = newColor();
+            }
+        }
+
+        private Color newColor() {
+            return new Color(myRandom.nextInt(255), myRandom.nextInt(255), myRandom.nextInt(255));
+        }
+
+        public void draw(Graphics g) {
+            g.setColor(color);
+            g.fillRect(x, y, w, h);
+        }
+
     }
 }
