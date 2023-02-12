@@ -63,13 +63,6 @@ public class GamePanel extends JPanel {
         g.setColor(myColor);     // maybe we can change the color
         g.fillRect((int) myXDelta, (int) myYDelta, 200, 50);
 
-
-        myFrames++;
-        if (System.currentTimeMillis() - myLastCheck >= 1000) {
-            myLastCheck = System.currentTimeMillis();
-            System.out.println(" FPS: " + myFrames);
-            myFrames = 0;
-        }
     }
 
     public void updateRectangle() {
@@ -109,7 +102,7 @@ public class GamePanel extends JPanel {
 
         private void updateRect() {
             this.x += xDir;
-            this.y += xDir;
+            this.y += yDir;
 
             if ((x + w) > 400 || x < 0) {
                 xDir *= -1;
