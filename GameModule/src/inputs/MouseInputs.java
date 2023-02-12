@@ -8,8 +8,10 @@ import java.awt.event.MouseMotionListener;
 
 public class MouseInputs implements MouseListener, MouseMotionListener {
 
+    //variable that will reference our GamePanel.
     private GamePanel gamePanel;
 
+    //Initializes our GamePanel.
     public MouseInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }
@@ -20,7 +22,7 @@ public class MouseInputs implements MouseListener, MouseMotionListener {
     }
 
     @Override
-    public void mouseMoved(MouseEvent e) {
+    public void mouseMoved(MouseEvent e) { //What will happen when we move our mouse.
         gamePanel.setImgPos(e.getX(), e.getY());
     }
 

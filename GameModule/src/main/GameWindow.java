@@ -3,9 +3,12 @@ package main;
 import javax.swing.*;
 
 public class GameWindow {
+
+    //The border of our panel/screen
     private JFrame jFrame;
 
-    public GameWindow(GamePanel gamePanel) {
+    //constructor called in Game class. This is our frame
+    public GameWindow(GamePanel gamePanel) { //image putting an image inside a frame.
 
         jFrame = new JFrame();
 

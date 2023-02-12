@@ -7,7 +7,10 @@ import java.awt.event.KeyListener;
 
 public class KeyBoardInputs implements KeyListener {
 
+    //variable that will reference our GamePanel.
     private GamePanel gamePanel;
+
+    ////Initializes our GamePanel.
     public KeyBoardInputs(GamePanel gamePanel) {
         this.gamePanel = gamePanel;
     }
@@ -22,6 +25,7 @@ public class KeyBoardInputs implements KeyListener {
 
     }
 
+    //What happens when we press a certain key.
     @Override
     public void keyPressed(KeyEvent e) {
         switch (e.getKeyCode()) {
