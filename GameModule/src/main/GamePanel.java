@@ -59,6 +59,7 @@ public class GamePanel extends JPanel {
         }
 
         updateRectangle();
+
         g.setColor(myColor);     // maybe we can change the color
         g.fillRect((int) myXDelta, (int) myYDelta, 200, 50);
 
@@ -111,12 +112,12 @@ public class GamePanel extends JPanel {
             this.y += xDir;
 
             if ((x + w) > 400 || x < 0) {
-                xDir += -1;
+                xDir *= -1;
                 color = newColor();
             }
 
             if ((y + h) > 400 || y < 0) {
-                yDir += -1;
+                yDir *= -1;
                 color = newColor();
             }
         }
