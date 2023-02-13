@@ -41,19 +41,19 @@ public class KeyBoardInputs implements KeyListener {
         switch (e.getKeyCode()) {
             case KeyEvent.VK_W:
                 //up
-                gamePanel.changeYDelta(-5);
+                gamePanel.changeYDelta(-10);
                 break;
             case KeyEvent.VK_A:
                  //left
-                gamePanel.changeXDelta(-5);
+                gamePanel.changeXDelta(-10);
                 break;
             case KeyEvent.VK_S:
                  //down
-                gamePanel.changeYDelta(5);
+                gamePanel.changeYDelta(10);
                 break;
             case KeyEvent.VK_D:
                 //right
-                gamePanel.changeXDelta(5);
+                gamePanel.changeXDelta(10);
                 break;
         }
     }
