@@ -2,7 +2,7 @@ package main;
 
 public class Game implements Runnable{
 
-    //The frame or the borders surrounding the panel
+    //The frame or the borders surrounding the panel.
     private GameWindow myGameWindow;
 
     //What's shown or made. Imagine it like a canvas that we're painting on.
