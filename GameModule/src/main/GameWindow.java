@@ -4,10 +4,16 @@ import javax.swing.*;
 
 public class GameWindow {
 
-    //The border of our panel/screen
+    /**
+     * The border of our panel/screen
+     */
     private JFrame jFrame;
 
-    //constructor called in Game class. This is our frame
+    /**
+     * Constructing our frame.
+     *
+     * @param gamePanel the Panel that will be put inside our window.
+     */
     public GameWindow(GamePanel gamePanel) { //image putting an image inside a frame.
 
         jFrame = new JFrame();
