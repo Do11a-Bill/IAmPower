@@ -50,7 +50,6 @@ public class Game implements Runnable{
 
         double timePerFrame = 1000000000.0 / FPS_SET;
         long lastFrame = System.nanoTime();
-
         long now;
 
         int frames = 0;
